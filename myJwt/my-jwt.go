@@ -9,16 +9,16 @@ import (
 
 func createPayload(accessKey string, queryHash string) jwt.Claims {
 	if queryHash != "" {
-		return jwt.MapClaims{"access_token": accessKey, "nonce": uuid.NewString(), "query_hash": queryHash}
+		return jwt.MapClaims{"access_key": accessKey, "nonce": uuid.NewString(), "query_hash": queryHash}
 	}
-	return jwt.MapClaims{"access_token": accessKey, "nonce": uuid.NewString()}
+	return jwt.MapClaims{"access_key": accessKey, "nonce": uuid.NewString()}
 }
 
 func signPayload(secretKey string, payload jwt.Claims) string {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS512, payload)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload)
 	signedToken, err := token.SignedString([]byte(secretKey))
 	if err != nil {
-		log.Fatal("createToken: ", err)
+		log.Fatal("signPayload: ", err)
 	}
 	return signedToken
 }
