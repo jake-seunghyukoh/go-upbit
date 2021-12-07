@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"log"
 
-	myhttp "github.com/ohshyuk5/go-upbit/myHttp"
+	"github.com/ohshyuk5/go-upbit/auth"
+	"github.com/ohshyuk5/go-upbit/myHttp"
 )
 
 type account struct {
@@ -18,8 +19,12 @@ type account struct {
 
 var url string = "https://api.upbit.com/v1/accounts"
 
-func GetAccounts(token string) []account {
-	body := myhttp.Request("GET", url, token, "", "")
+func GetAccounts() []account {
+	accessKey, secretKey := auth.LoadKeys()
+
+	token := auth.CreateJwtToken(accessKey, secretKey, "")
+
+	body := myHttp.Request("GET", url, token, "", "")
 
 	var accounts []account
 	err := json.Unmarshal([]byte(body), &accounts)

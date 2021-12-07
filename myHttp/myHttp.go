@@ -1,4 +1,4 @@
-package myhttp
+package myHttp
 
 import (
 	"fmt"
@@ -14,7 +14,7 @@ func Request(method string, url string, token string, queryString string, body s
 	var req *http.Request
 	var err error
 
-	url = url + queryString
+	url = fmt.Sprintf("%s?%s", url, queryString)
 
 	if body != "" {
 		payload := strings.NewReader(body)

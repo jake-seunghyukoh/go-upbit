@@ -1,4 +1,4 @@
-package myJwt
+package auth
 
 import (
 	"log"
