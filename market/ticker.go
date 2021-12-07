@@ -14,27 +14,27 @@ type priceTick struct {
 	TradeTime          string  `json:"trade_time"`
 	TradeDateKST       string  `json:"trade_date_kst"`
 	TradeTimeKST       string  `json:"trade_time_kst"`
-	TradeTimestamp     float32 `json:"trade_timestamp"`
-	OpeningPrice       float32 `json:"opening_price"`
-	HighPrice          float32 `json:"high_price"`
-	LowPrice           float32 `json:"low_price"`
-	TradePrice         float32 `json:"trade_price"`
-	PrevClosingPrice   float32 `json:"prev_closing_price"`
+	TradeTimestamp     float64 `json:"trade_timestamp"`
+	OpeningPrice       float64 `json:"opening_price"`
+	HighPrice          float64 `json:"high_price"`
+	LowPrice           float64 `json:"low_price"`
+	TradePrice         float64 `json:"trade_price"`
+	PrevClosingPrice   float64 `json:"prev_closing_price"`
 	Change             string  `json:"change"`
-	ChangePrice        float32 `json:"change_price"`
-	ChangeRate         float32 `json:"change_rate"`
-	SignedChangePrice  float32 `json:"signed_change_price"`
-	SignedChangeRate   float32 `json:"signed_change_rate"`
-	TradeVolume        float32 `json:"trade_volume"`
-	AccTradePrice      float32 `json:"acc_trade_price"`
-	AccTradePrice24h   float32 `json:"acc_trade_price_24h"`
-	AccTradeVolume     float32 `json:"acc_trade_volume"`
-	AccTradeVolume24h  float32 `json:"acc_trade_volume_24h"`
-	Highest52WeekPrice float32 `json:"highest_52_week_price"`
+	ChangePrice        float64 `json:"change_price"`
+	ChangeRate         float64 `json:"change_rate"`
+	SignedChangePrice  float64 `json:"signed_change_price"`
+	SignedChangeRate   float64 `json:"signed_change_rate"`
+	TradeVolume        float64 `json:"trade_volume"`
+	AccTradePrice      float64 `json:"acc_trade_price"`
+	AccTradePrice24h   float64 `json:"acc_trade_price_24h"`
+	AccTradeVolume     float64 `json:"acc_trade_volume"`
+	AccTradeVolume24h  float64 `json:"acc_trade_volume_24h"`
+	Highest52WeekPrice float64 `json:"highest_52_week_price"`
 	Highest52WeekDate  string  `json:"highest_52_week_date"`
-	Lowest52WeekPrice  float32 `json:"lowest_52_week_price"`
+	Lowest52WeekPrice  float64 `json:"lowest_52_week_price"`
 	Lowest52WeekDate   string  `json:"lowest_52_week_date"`
-	Timestamp          float32 `json:"timestamp"`
+	Timestamp          int64   `json:"timestamp"`
 }
 
 func (p priceTick) String() string {
