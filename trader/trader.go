@@ -15,6 +15,13 @@ func getCurrentPrice(marketId string) quotation.TradeTick {
 	return tradeTick
 }
 
+func goodToBuy(marketId string) {
+	candles := quotation.GetMinuteCandles(marketId, 5, 12)
+	for _, candle := range candles {
+		fmt.Println(candle)
+	}
+}
+
 func initialize() {
 }
 
