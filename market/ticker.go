@@ -46,7 +46,13 @@ func (p priceTick) String() string {
 }
 
 func GetTicker(marketId string) []priceTick {
-	body := myHttp.Request("GET", TickerURL, "", fmt.Sprintf("markets=%s", marketId), "")
+	body := myHttp.Request(
+		"GET",
+		TickerURL,
+		"",
+		fmt.Sprintf("markets=%s", marketId),
+		"",
+	)
 
 	var priceTicks []priceTick
 	err := json.Unmarshal([]byte(body), &priceTicks)

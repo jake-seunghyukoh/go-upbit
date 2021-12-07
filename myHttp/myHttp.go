@@ -10,7 +10,7 @@ import (
 	"github.com/ohshyuk5/go-upbit/utils"
 )
 
-func Request(method string, url string, token string, queryString string, body string) string {
+func Request(method, url, token, queryString, body string) string {
 	var req *http.Request
 	var err error
 

@@ -23,7 +23,9 @@ type TradeTick struct {
 }
 
 func (t TradeTick) String() string {
-	return fmt.Sprintf("%s at %sT%s price: %f volume: %f", t.AskBid, t.TradeDateUTC, t.TradeTimeUTC, t.TradePrice, t.TradeVolume)
+	return fmt.Sprintf(
+		"%s at %sT%s price: %f volume: %f",
+		t.AskBid, t.TradeDateUTC, t.TradeTimeUTC, t.TradePrice, t.TradeVolume)
 }
 
 // Get recent trade history
