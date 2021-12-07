@@ -17,14 +17,12 @@ type account struct {
 	UnitCurrency        string `json:"unit_currency"`
 }
 
-var url string = "https://api.upbit.com/v1/accounts"
-
 func GetAccounts() []account {
 	accessKey, secretKey := auth.LoadKeys()
 
 	token := auth.CreateJwtToken(accessKey, secretKey, "")
 
-	body := myHttp.Request("GET", url, token, "", "")
+	body := myHttp.Request("GET", AccountsURL, token, "", "")
 
 	var accounts []account
 	err := json.Unmarshal([]byte(body), &accounts)

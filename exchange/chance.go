@@ -42,8 +42,6 @@ func (c chance) String() string {
 	return string(doc)
 }
 
-var baseURL string = "https://api.upbit.com/v1/orders/chance"
-
 func GetChance(marketId string) chance {
 	accessKey, secretKey := auth.LoadKeys()
 
@@ -52,7 +50,7 @@ func GetChance(marketId string) chance {
 
 	token := auth.CreateJwtToken(accessKey, secretKey, queryHash)
 
-	body := myHttp.Request("GET", baseURL, token, queryString, queryString)
+	body := myHttp.Request("GET", ChanceURL, token, queryString, queryString)
 
 	var chance chance
 	err := json.Unmarshal([]byte(body), &chance)
