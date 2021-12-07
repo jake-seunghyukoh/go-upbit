@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/ohshyuk5/go-upbit/exchange"
+	"github.com/ohshyuk5/go-upbit/market"
 )
 
 func main() {
@@ -19,4 +20,16 @@ func main() {
 	chance := exchange.GetChance("KRW-BTC")
 
 	fmt.Println(chance)
+
+	fmt.Println("")
+	fmt.Println("Requesting Market List")
+	markets := market.GetAllMarkets()
+
+	fmt.Println(markets[0], "...")
+
+	fmt.Println("")
+	fmt.Println("Requesting BTC ticker")
+	tickers := market.GetTicker("KRW-BTC")
+
+	fmt.Println(tickers)
 }
