@@ -1,10 +1,10 @@
 package exchange
 
-var BaseURL string = "https://api.upbit.com/v1"
+const BaseURL string = "https://api.upbit.com/v1"
 
-var AccountsURL string = BaseURL + "/accounts"
+const AccountsURL string = BaseURL + "/accounts"
 
-var OrdersURL string = BaseURL + "/orders"
-var OrderURL string = BaseURL + "/order"
+const OrdersURL string = BaseURL + "/orders"
+const OrderURL string = BaseURL + "/order"
 
-var ChanceURL string = BaseURL + "/orders/chance"
+const ChanceURL string = BaseURL + "/orders/chance"
