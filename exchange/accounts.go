@@ -2,11 +2,9 @@ package exchange
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
-	"net/http"
 
-	"github.com/ohshyuk5/go-upbit/utils"
+	myhttp "github.com/ohshyuk5/go-upbit/myHttp"
 )
 
 type account struct {
@@ -21,21 +19,13 @@ type account struct {
 var url string = "https://api.upbit.com/v1/accounts"
 
 func GetAccounts(token string) []account {
-	req, _ := http.NewRequest("GET", url, nil)
+	body := myhttp.Request("GET", url, token, "", "")
 
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", token))
-
-	res, err := http.DefaultClient.Do(req)
-	utils.HandleHttpError(res, err)
-
-	defer res.Body.Close()
-
-	var bodies []account
-	err = json.NewDecoder(res.Body).Decode(&bodies)
+	var accounts []account
+	err := json.Unmarshal([]byte(body), &accounts)
 	if err != nil {
 		log.Fatalf("Get Accounts -> %s", err)
 	}
 
-	return bodies
+	return accounts
 }
